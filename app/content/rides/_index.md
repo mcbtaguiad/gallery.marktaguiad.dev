@@ -1,12 +1,12 @@
 ---
 description: Maykan, inta agpasyar!
 keywords: [rides, cycling]
-title: Rides
+title: Palla-ilang
 weight: 1
 menus: "main"
 # list pages require at least one image to be displayed.
 resources:
-  - src: CBuwQL6.jpeg
+  - src: _1160217.jpg
     params:
       cover: true
 ---
