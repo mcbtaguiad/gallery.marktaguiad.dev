@@ -1,4 +1,4 @@
-FROM docker.io/ubuntu:22.04 as builder
+FROM docker.io/ubuntu:24.04 as builder
 
 RUN apt-get update -y && apt-get upgrade -y
 
@@ -7,6 +7,10 @@ RUN apt-get install -y hugo
 WORKDIR /site
 
 COPY ./app/ .
+
+COPY ./app/go.mod ../
+
+RUN hugo mod get
 
 RUN hugo
 
