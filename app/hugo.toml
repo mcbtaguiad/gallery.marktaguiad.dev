@@ -1,3 +1,4 @@
+baseURL = "https://gallery.marktaguiad.dev"
 # copyright = "Mark Taguiad"
 defaultContentLanguage = "en"
 disableKinds = ["taxonomy"]
