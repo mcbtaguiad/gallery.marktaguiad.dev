@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: gallery-marktaguiad-dev
+  name: gallery-marktaguiad-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gallery-marktaguiad-dev
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: gallery-marktaguiad-dev
+    spec:
+      # affinity:
+      #   nodeAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #       nodeSelectorTerms:
+      #         - matchExpressions:
+      #             - key: kubernetes.io/arch
+      #               operator: In
+      #               values:
+      #                 - "amd64"
+      #     preferredDuringSchedulingIgnoredDuringExecution:
+            # - weight: 10
+            #   preference:
+            #     matchExpressions:
+            #     - key: kubernetes.io/role
+            #       operator: In
+            #       values:
+            #       - 'worker'
+            # - weight: 10
+            #   preference:
+            #     matchExpressions:
+            #     - key: node-role.kubernetes.io/master
+            #       operator: In
+            #       values:
+            #       - 'true'
+            # - weight: 10
+            #   preference:
+            #     matchExpressions:
+            #       - key: core
+            #         operator: In
+            #         values:
+            #           - "4"
+            # - weight: 5
+            #   preference:
+            #     matchExpressions:
+            #       - key: core
+            #         operator: In
+            #         values:
+            #           - "3"
+            # - weight: 5
+            #   preference:
+            #     matchExpressions:
+            #       - key: disk
+            #         operator: In
+            #         values:
+            #           - "ssd"
+      imagePullSecrets:
+        - name: ghcr.io
+      containers:
+        - image: ghcr.io/mcbtaguiad/marktaguiad.dev:main
+          name: gallery-marktaguiad-dev
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+      #     volumeMounts:
+      #     - name: static
+      #       subPath: static
+      #       mountPath: /usr/local/apache2/htdocs/static
+      # volumes:
+      #   - name: static
+      #     persistentVolumeClaim:
+      #       claimName: ``eb-tagsdev-pvc
+      restartPolicy: Always

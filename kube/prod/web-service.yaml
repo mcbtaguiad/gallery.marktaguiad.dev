@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: gallery-marktaguiad-dev
+  name: gallery-marktaguiad-dev
+spec:
+  ports:
+    - name: "80"
+      port: 80
+      targetPort: 80
+  selector:
+    app: gallery-marktaguiad-dev
+status:
+  loadBalancer: {}

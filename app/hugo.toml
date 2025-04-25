@@ -1,0 +1,62 @@
+# copyright = "Mark Taguiad"
+defaultContentLanguage = "en"
+disableKinds = ["taxonomy"]
+enableRobotsTXT = true
+languageCode = "en"
+timeZone = "Asia/Manila"
+timeout = "120s"
+title = "Mark Taguiad"
+theme = 'gallery'
+
+[params]
+  defaultTheme = "dark"
+  description = "Mark Taguiad Gallery"
+  title = "Gallery"
+  [params.author]
+    email = "marktaguiad@marktaguiad.dev"
+    name = "Mark Taguiad"
+  [params.socialIcons]
+    # facebook = "https://www.facebook.com/"
+    instagram = "https://www.instagram.com/mark.tags/"
+    github = "https://github.com/mcbtaguiad/"
+    # youtube = "https://www.youtube.com/"
+    email = "mailto:marktaguiad@marktaguiad.dev"
+    website = "https://marktaguiad.dev"
+    #mastodon = "https://example.com"
+    #pixelfed = "https://example.com"
+    #mixcloud = "https://example.com"
+    #flickr = "https://www.flickr.com"
+    #500px = "https://500px"
+  [params.gallery]
+    #boxSpacing = 10
+    #targetRowHeight = 288
+    #targetRowHeightTolerance = 0.25
+
+[outputs]
+  home = ["HTML", "RSS"]
+  page = ["HTML"]
+  section = ["HTML"]
+
+[imaging]
+  quality = 75
+  resampleFilter = "CatmullRom"
+  [imaging.exif]
+    disableDate = false
+    disableLatLong = true
+    includeFields = "ImageDescription|Orientation"
+
+[module]
+  [module.hugoVersion]
+    min = "0.121.2"
+  [[module.imports]]
+    path = "github.com/nicokaiser/hugo-theme-gallery/v4"
+
+[menu]
+  [[menu.footer]]
+    name = "Copyright (c) 2025 marktaguiad.dev "
+    url = "https://marktaguiad.dev"
+    weight = 3
+
+[services]
+  [services.rss]
+    limit = 100
