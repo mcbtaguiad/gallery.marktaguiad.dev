@@ -28,6 +28,6 @@ spec:
         pathType: Prefix
         backend:
           service: 
-            name: gallery.marktaguiad-dev
+            name: gallery-marktaguiad-dev
             port:
               number: 80

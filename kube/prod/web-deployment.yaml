@@ -64,7 +64,7 @@ spec:
       imagePullSecrets:
         - name: ghcr.io
       containers:
-        - image: ghcr.io/mcbtaguiad/marktaguiad.dev:main
+        - image: ghcr.io/mcbtaguiad/gallery.marktaguiad.dev:main
           name: gallery-marktaguiad-dev
           imagePullPolicy: Always
           ports:
