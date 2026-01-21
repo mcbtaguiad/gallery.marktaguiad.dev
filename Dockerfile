@@ -1,4 +1,4 @@
-FROM docker.io/ubuntu:24.04 as builder
+FROM docker.io/ubuntu:26.04 as builder
 
 RUN apt-get update -y && apt-get upgrade -y
 
@@ -14,14 +14,18 @@ RUN hugo mod get
 
 RUN hugo
 
-FROM docker.io/nginx:1.25.5-bookworm
+# FROM docker.io/nginx:1.25.5-bookworm
+
+FROM httpd:2.4
 
 WORKDIR /app
 
-COPY --from=builder /site/public/ .
+# COPY --from=builder /site/public/ .
+
+COPY --from=builder /site/public/ /usr/local/apache2/htdocs/
 
 
-COPY ./nginx.conf /etc/nginx/nginx.conf
+# COPY ./nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
